@@ -1,0 +1,9 @@
+\set QUIET 1
+\pset null 'NULL'
+\set HISTFILE ~/.psql_history- :DBNAME
+\set HISTSIZE 10000
+\set HISTCONTROL ignoreboth
+\timing on
+\set PROMPT1 '(%n@%M:%>) %/%R%# '
+\encoding unicode
+\unset QUIET
