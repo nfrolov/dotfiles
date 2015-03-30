@@ -1,0 +1,24 @@
+[core]
+    compression = 7
+    editor = vim
+[diff]
+    mnemonicprefix = true
+[push]
+    default = current
+[pull]
+    ff = only
+[rebase]
+    autosquash = true
+[alias]
+    ap = add --patch
+    st = status -s
+    ci = commit -v
+    ca = commit --amend -C HEAD
+    co = checkout
+    di = diff
+    dc = diff --cached
+    dw = diff --word-diff=color
+    lg = log --oneline --decorate --graph
+    br = branch
+[include]
+    path = ~/.gitconfig.local
