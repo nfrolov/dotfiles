@@ -3,6 +3,8 @@
     editor = vim
 [diff]
     mnemonicprefix = true
+[merge]
+    conflictstyle = diff3
 [push]
     default = current
 [pull]
