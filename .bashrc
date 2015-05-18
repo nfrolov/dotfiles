@@ -1,5 +1,10 @@
 [ -z "$PS1" ] && return
 
+if [ -t 0 ]; then
+    stty ixany
+    stty ixoff -ixon
+fi
+
 if [ "$TERM" = "xterm" -a "$COLORTERM" = "gnome-terminal" ]; then
     TERM=xterm-256color
 fi
