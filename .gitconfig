@@ -21,6 +21,7 @@
     dc = diff --cached
     dw = diff --word-diff=color
     lg = log --oneline --decorate --graph
+    io = log --left-right --oneline --graph @{u}...
     br = branch
 [include]
     path = ~/.gitconfig.local
