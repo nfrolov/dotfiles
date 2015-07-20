@@ -55,3 +55,6 @@
 [submodule ".vim/bundle/unimpaired"]
 	path = .vim/bundle/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
+[submodule ".vim/bundle/obsession"]
+	path = .vim/bundle/obsession
+	url = https://github.com/tpope/vim-obsession.git
