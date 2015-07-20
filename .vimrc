@@ -111,3 +111,5 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard']
 
 let g:gitgutter_sign_column_always = 1
+
+let g:prosession_dir = '~/.vim/dirs/session/'

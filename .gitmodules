@@ -58,3 +58,6 @@
 [submodule ".vim/bundle/obsession"]
 	path = .vim/bundle/obsession
 	url = https://github.com/tpope/vim-obsession.git
+[submodule ".vim/bundle/prosession"]
+	path = .vim/bundle/prosession
+	url = https://github.com/dhruvasagar/vim-prosession.git
