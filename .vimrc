@@ -97,6 +97,10 @@ augroup vimrc
     au FileType vim,php setlocal et sts=4 sw=4
     au FileType html,xml,css,scss,javascript,json,jade setlocal et sts=2 sw=2
     au FileType scss setlocal commentstring=//\ %s
+    au FileType javascript
+        \ if findfile('.eslintrc', '.;') != '' |
+        \    let b:syntastic_checkers = ['eslint'] |
+        \ endif
 augroup end
 
 
