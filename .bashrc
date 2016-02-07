@@ -11,7 +11,7 @@ fi
 
 
 HISTCONTROL=ignoredups:ignorespace
-HISTIGNORE='cd:cd *:ls:ls *:ll:bg:fg:vim:gulp:gulp *:history'
+HISTIGNORE='cd:ls:ll:bg:fg:vim:gulp:tmux:history'
 HISTSIZE=2000
 HISTFILESIZE=4000
 
