@@ -47,6 +47,8 @@ set colorcolumn=80
 
 set scrolloff=1
 set sidescrolloff=5
+set splitbelow
+set splitright
 
 set incsearch
 set ignorecase
