@@ -73,6 +73,9 @@ nnoremap <silent> <leader>fb :CtrlPBuffer<cr>
 nnoremap <silent> <leader>fm :CtrlPMixed<cr>
 nnoremap <silent> <leader>ll :set modifiable!<cr>
 
+nnoremap Q <nop>
+nnoremap gQ <nop>
+
 
 set background=dark
 set t_Co=256
