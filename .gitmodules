@@ -61,3 +61,6 @@
 [submodule ".vim/bundle/airline-themes"]
 	path = .vim/bundle/airline-themes
 	url = https://github.com/vim-airline/vim-airline-themes.git
+[submodule ".vim/bundle/javascript-syntax"]
+	path = .vim/bundle/javascript-syntax
+	url = https://github.com/othree/yajs.vim.git
