@@ -61,3 +61,6 @@
 [submodule ".vim/bundle/prosession"]
 	path = .vim/bundle/prosession
 	url = https://github.com/dhruvasagar/vim-prosession.git
+[submodule ".vim/bundle/airline-themes"]
+	path = .vim/bundle/airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
