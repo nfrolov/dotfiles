@@ -64,3 +64,6 @@
 [submodule ".vim/bundle/javascript-syntax"]
 	path = .vim/bundle/javascript-syntax
 	url = https://github.com/othree/yajs.vim.git
+[submodule ".vim/bundle/javascript-indent"]
+	path = .vim/bundle/javascript-indent
+	url = https://github.com/gavocanov/vim-js-indent.git
