@@ -178,6 +178,8 @@ git-remote-prune-all() {
 }
 
 
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
+if ! shopt -oq posix; then
+    [[ -f /etc/bash_completion ]] && . /etc/bash_completion
+    [[ -n $NVM_DIR && -f "$NVM_DIR/bash_completion" ]] && . "$NVM_DIR/bash_completion"
+    [[ -n $RVM_DIR && -f "$RVM_DIR/scripts/completion" ]] && . "$RVM_DIR/scripts/completion"
 fi
