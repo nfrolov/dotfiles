@@ -58,20 +58,9 @@ set hlsearch
 
 let mapleader = ","
 
-set pastetoggle=<f8>
-nnoremap <silent> <f8> :set paste!<cr>
-
-nnoremap <f5> :setlocal et ai si ts=2 sts=2 sw=2<cr>
-nnoremap <f6> :setlocal noet noai nosi ts=4 sts=4 sw=4<cr>
-nnoremap <f7> :setlocal noet noai nosi ts=8 sts=8 sw=8<cr>
-
 nnoremap <expr> gV '`['.getregtype()[0].'`]'
 
 nnoremap <silent> <leader>/ :let @/=""<cr>
-nnoremap <silent> <leader>ff :CtrlP<cr>
-nnoremap <silent> <leader>fb :CtrlPBuffer<cr>
-nnoremap <silent> <leader>fm :CtrlPMixed<cr>
-nnoremap <silent> <leader>ll :set modifiable!<cr>
 
 nnoremap Q <nop>
 nnoremap gQ <nop>
