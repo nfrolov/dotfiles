@@ -9,7 +9,7 @@ fi
 
 
 HISTCONTROL=ignoredups:ignorespace
-HISTIGNORE='cd:ls:ll:bg:fg:vim:gulp:tmux:history'
+HISTIGNORE='cd:ls:ll:bg:fg:vim:gulp:tmux:history:g'
 HISTSIZE=2000
 HISTFILESIZE=4000
 
@@ -142,8 +142,20 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 
+g() {
+    if [[ $# -gt 0 ]]; then
+        git "$@"
+    else
+        git status --short
+    fi
+}
+
+
 if ! shopt -oq posix; then
     [[ -f /etc/bash_completion ]] && . /etc/bash_completion
+    if type -t __git_complete > /dev/null; then
+        __git_complete g __git_main
+    fi
     [[ -n $NVM_DIR && -f "$NVM_DIR/bash_completion" ]] && . "$NVM_DIR/bash_completion"
     [[ -n $RVM_DIR && -f "$RVM_DIR/scripts/completion" ]] && . "$RVM_DIR/scripts/completion"
 fi
