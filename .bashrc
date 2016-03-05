@@ -142,42 +142,6 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 
-git-pull-all() {
-    local cwd=$(pwd)
-    for dir in *; do
-        if [ -d "$dir/.git" ]; then
-            cd "$dir"
-            git pull --ff-only --no-stat --verbose
-            cd "$cwd"
-        fi
-    done
-}
-
-git-gc-all() {
-    local cwd=$(pwd)
-    for dir in *; do
-        if [ -d "$dir/.git" ]; then
-            cd "$dir"
-            git gc "$@"
-            cd "$cwd"
-        fi
-    done
-}
-
-git-remote-prune-all() {
-    local cwd=$(pwd)
-    for dir in *; do
-        if [ -d "$dir/.git" ]; then
-            cd "$dir"
-            for remote in "$(git remote)"; do
-                git remote prune $1 "$remote"
-            done
-            cd "$cwd"
-        fi
-    done
-}
-
-
 if ! shopt -oq posix; then
     [[ -f /etc/bash_completion ]] && . /etc/bash_completion
     [[ -n $NVM_DIR && -f "$NVM_DIR/bash_completion" ]] && . "$NVM_DIR/bash_completion"
