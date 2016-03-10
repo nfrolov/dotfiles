@@ -111,7 +111,9 @@ let g:ctrlp_user_command = ['.git', 'git --git-dir=%s/.git ls-files -co --exclud
 let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_open_multiple_files = '1r'
 
+let g:gitgutter_map_keys = 0
 let g:gitgutter_sign_column_always = 1
+let g:gitgutter_sign_modified_removed = '~̲'
 
 let g:prosession_dir = '~/.vim/dirs/session/'
 
