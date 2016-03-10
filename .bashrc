@@ -151,11 +151,6 @@ g() {
 }
 
 
-if ! shopt -oq posix; then
-    [[ -f /etc/bash_completion ]] && . /etc/bash_completion
-    if type -t __git_complete > /dev/null; then
-        __git_complete g __git_main
-    fi
-    [[ -n $NVM_DIR && -f "$NVM_DIR/bash_completion" ]] && . "$NVM_DIR/bash_completion"
-    [[ -n $RVM_DIR && -f "$RVM_DIR/scripts/completion" ]] && . "$RVM_DIR/scripts/completion"
+if [[ -z $BASH_COMPLETION_COMPAT_DIR && -f /usr/share/bash-completion/bash_completion ]]; then
+    . /usr/share/bash-completion/bash_completion
 fi
