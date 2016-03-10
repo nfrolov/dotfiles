@@ -103,7 +103,6 @@ let g:airline_section_y = "%{airline#util#wrap(&fenc.' '.&ff,0)}"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline#extensions#tabline#buffer_nr_show = 1
 
 let g:ctrlp_match_window = 'min:15,max:15'
 let g:ctrlp_working_path_mode = 'ra'
