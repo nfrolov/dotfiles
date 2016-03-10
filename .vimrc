@@ -105,9 +105,11 @@ let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
-let g:ctrlp_match_window = 'min:10,max:10'
+let g:ctrlp_match_window = 'min:15,max:15'
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard']
+let g:ctrlp_user_command = ['.git', 'git --git-dir=%s/.git ls-files -co --exclude-standard']
+let g:ctrlp_open_new_file = 'r'
+let g:ctrlp_open_multiple_files = '1r'
 
 let g:gitgutter_sign_column_always = 1
 
