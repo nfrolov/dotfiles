@@ -92,7 +92,9 @@ augroup end
 
 
 let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 let g:syntastic_auto_loc_list = 2
+let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_stl_format = '%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}'
 
 let g:airline_left_sep = ''
