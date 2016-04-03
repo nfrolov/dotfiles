@@ -24,11 +24,13 @@ set history=100
 set undolevels=200
 set sessionoptions-=blank
 set sessionoptions-=options
+set autoread
 
 set title
 set shortmess=a
 set laststatus=2
-set noshowcmd
+set showcmd
+set noshowmode
 set ruler
 set wildmenu
 set wildmode=list:longest,full
@@ -40,14 +42,16 @@ set list
 set listchars=tab:»·,trail:·,extends:>,precedes:<,nbsp:+ " ,eol:↲
 set nowrap
 set linebreak
+set formatoptions+=j
 
 set number
 set autoindent
 set shiftround
 set nrformats-=octal
-set colorcolumn=80
+set colorcolumn=80,100
+set backspace=indent,eol,start
 
-set scrolloff=1
+set scrolloff=5
 set sidescrolloff=5
 set splitbelow
 set splitright
