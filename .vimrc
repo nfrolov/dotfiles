@@ -67,7 +67,6 @@ nnoremap gQ <nop>
 
 
 set background=dark
-set t_Co=256
 set t_ut=
 let g:solarized_termtrans=1
 let g:solarized_visibility="normal"
