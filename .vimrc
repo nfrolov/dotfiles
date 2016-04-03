@@ -76,7 +76,6 @@ let g:colarized_hitrail=1
 colorscheme solarized
 
 let html_no_rendering = 1
-highlight! link SignColumn Ignore
 
 
 augroup vimrc
