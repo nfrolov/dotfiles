@@ -22,6 +22,8 @@ set undofile
 set undodir=~/.vim/dirs/undo//
 set history=100
 set undolevels=200
+set sessionoptions-=blank
+set sessionoptions-=options
 
 set title
 set shortmess=a
