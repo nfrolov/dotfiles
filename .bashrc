@@ -8,6 +8,11 @@ if [ "$TERM" = "xterm" -a "$COLORTERM" = "gnome-terminal" ]; then
 fi
 
 
+if [[ $OSTYPE == darwin* ]] && command -v brew > /dev/null; then
+    BREW_PREFIX=$(brew --prefix)
+fi
+
+
 HISTCONTROL=ignoredups:ignorespace
 HISTIGNORE='cd:ls:ll:bg:fg:vim:gulp:tmux:history:g'
 HISTSIZE=2000
