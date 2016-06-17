@@ -1,3 +1,5 @@
+[user]
+    useconfigonly = true
 [core]
     compression = 7
     editor = vim
