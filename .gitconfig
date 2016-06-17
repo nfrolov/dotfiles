@@ -5,6 +5,7 @@
     editor = vim
 [diff]
     mnemonicprefix = true
+    compactionheuristic = true
 [merge]
     conflictstyle = diff3
 [push]
