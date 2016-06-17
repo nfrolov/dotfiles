@@ -26,5 +26,6 @@
     lg = log --oneline --decorate --graph
     io = log --left-right --oneline --graph @{u}...
     br = branch
+    pf = push --force-with-lease
 [include]
     path = ~/.gitconfig.local
