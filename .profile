@@ -1,3 +1,6 @@
+export EDITOR=vim
+export VISUAL=vim
+
 export NVM_DIR=$(readlink -f "$HOME/.nvm")
 [ -f "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
