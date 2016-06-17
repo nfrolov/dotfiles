@@ -170,3 +170,5 @@ if [[ -z $BASH_COMPLETION_COMPAT_DIR ]]; then
         . /usr/share/bash-completion/bash_completion
     fi
 fi
+
+[[ -f $HOME/.bashrc.local ]] && . "$HOME/.bashrc.local"
