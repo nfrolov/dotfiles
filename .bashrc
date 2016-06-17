@@ -134,8 +134,8 @@ fi
 unset color_prompt force_color_prompt
 
 
-if [ -x /usr/bin/dircolors ]; then
-    if [ -r ~/.dircolors ]; then
+if command -v dircolors > /dev/null; then
+    if [[ -f ~/.dircolors ]]; then
         eval "$(dircolors -b ~/.dircolors)"
     else
         eval "$(dircolors -b)"
