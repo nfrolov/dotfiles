@@ -12,6 +12,13 @@ if [[ $OSTYPE == darwin* ]] && command -v brew > /dev/null; then
     BREW_PREFIX=$(brew --prefix)
 fi
 
+if [[ -n $BREW_PREFIX ]]; then
+    if [[ -d $BREW_PREFIX/opt/coreutils/libexec/gnubin ]]; then
+        PATH="$BREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
+        MANPATH="$BREW_PREFIX/opt/coreutils/libexec/gnuman:$MANPATH"
+    fi
+fi
+
 
 HISTCONTROL=ignoredups:ignorespace
 HISTIGNORE='cd:ls:ll:bg:fg:vim:gulp:tmux:history:g'
