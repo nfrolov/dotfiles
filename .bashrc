@@ -156,6 +156,10 @@ g() {
 }
 
 
-if [[ -z $BASH_COMPLETION_COMPAT_DIR && -f /usr/share/bash-completion/bash_completion ]]; then
-    . /usr/share/bash-completion/bash_completion
+if [[ -z $BASH_COMPLETION_COMPAT_DIR ]]; then
+    if [[ -n $BREW_PREFIX && -f $BREW_PREFIX/etc/bash_completion ]]; then
+        . "$BREW_PREFIX/etc/bash_completion"
+    elif [[ -f /usr/share/bash-completion/bash_completion ]]; then
+        . /usr/share/bash-completion/bash_completion
+    fi
 fi
