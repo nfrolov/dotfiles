@@ -3,8 +3,8 @@
 
 _g() {
     type -t __git_complete > /dev/null || \
-        [[ -f /usr/share/bash-completion/completions/git ]] && \
-        . /usr/share/bash-completion/completions/git
+        ( [[ -f /usr/share/bash-completion/completions/git ]] && \
+        . /usr/share/bash-completion/completions/git )
     type -t __git_complete > /dev/null && \
         __git_complete g __git_main && \
         return 124
