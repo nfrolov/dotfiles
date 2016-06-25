@@ -46,9 +46,6 @@
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule ".vim/bundle/targets"]
-	path = .vim/bundle/targets
-	url = https://github.com/wellle/targets.vim.git
 [submodule ".vim/bundle/unimpaired"]
 	path = .vim/bundle/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
