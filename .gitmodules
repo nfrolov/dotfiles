@@ -73,3 +73,6 @@
 [submodule ".vim/bundle/ag-action"]
 	path = .vim/bundle/ag-action
 	url = https://github.com/Chun-Yang/vim-action-ag.git
+[submodule ".vim/bundle/bbye"]
+	path = .vim/bundle/bbye
+	url = https://github.com/moll/vim-bbye.git
