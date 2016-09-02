@@ -85,3 +85,6 @@
 [submodule ".vim/bundle/textobj-variable-segment"]
 	path = .vim/bundle/textobj-variable-segment
 	url = https://github.com/Julian/vim-textobj-variable-segment.git
+[submodule ".vim/bundle/textobj-parameter"]
+	path = .vim/bundle/textobj-parameter
+	url = https://github.com/sgur/vim-textobj-parameter.git
