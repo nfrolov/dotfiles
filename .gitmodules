@@ -82,3 +82,6 @@
 [submodule ".vim/bundle/textobj-xmlattr"]
 	path = .vim/bundle/textobj-xmlattr
 	url = https://github.com/whatyouhide/vim-textobj-xmlattr.git
+[submodule ".vim/bundle/textobj-variable-segment"]
+	path = .vim/bundle/textobj-variable-segment
+	url = https://github.com/Julian/vim-textobj-variable-segment.git
