@@ -15,6 +15,7 @@
     autosquash = true
 [alias]
     ap = add --patch
+    an = add --intent-to-add
     st = status -s
     ci = commit -v
     ca = commit --amend -C HEAD
