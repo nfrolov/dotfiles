@@ -27,5 +27,6 @@
     io = log --left-right --oneline --graph @{u}...
     br = branch
     pf = push --force-with-lease
+    rc = rebase --continue
 [include]
     path = ~/.gitconfig.local
