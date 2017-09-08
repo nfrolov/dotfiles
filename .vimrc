@@ -110,6 +110,10 @@ let g:ctrlp_user_command = ['.git', 'git --git-dir=%s/.git ls-files -co --exclud
 let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_open_multiple_files = '1r'
 
+let g:splitjoin_curly_brace_padding = 1
+let g:splitjoin_trailing_comma = 1
+let g:splitjoin_html_attribute_bracket_on_new_line = 1
+
 let g:gitgutter_map_keys = 0
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_sign_modified_removed = '~̲'
