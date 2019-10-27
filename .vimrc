@@ -107,6 +107,8 @@ let g:airline#extensions#tabline#left_alt_sep = ''
 let g:ctrlp_match_window = 'min:15,max:15'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_user_command = ['.git', 'git --git-dir=%s/.git ls-files -co --exclude-standard']
+let g:ctrlp_match_current_file = 1
+let g:ctrlp_use_caching = 0
 let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_open_multiple_files = '1r'
 
