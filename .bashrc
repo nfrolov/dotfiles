@@ -3,10 +3,6 @@
 stty ixany
 stty ixoff -ixon
 
-if [ "$TERM" = "xterm" -a "$COLORTERM" = "gnome-terminal" ]; then
-    TERM=xterm-256color
-fi
-
 
 if [[ $OSTYPE == darwin* ]] && command -v brew > /dev/null; then
     BREW_PREFIX=$(brew --prefix)
