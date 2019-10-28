@@ -25,6 +25,7 @@ set undolevels=200
 set sessionoptions-=blank
 set sessionoptions-=options
 set autoread
+set updatetime=300
 
 set title
 set shortmess=a
@@ -50,6 +51,7 @@ set shiftround
 set nrformats-=octal
 set colorcolumn=80,100
 set backspace=indent,eol,start
+set signcolumn=yes
 
 set scrolloff=5
 set sidescrolloff=5
@@ -117,8 +119,8 @@ let g:splitjoin_trailing_comma = 1
 let g:splitjoin_html_attribute_bracket_on_new_line = 1
 
 let g:gitgutter_map_keys = 0
-let g:gitgutter_sign_column_always = 1
 let g:gitgutter_sign_modified_removed = '~'
+let g:gitgutter_sign_priority = 9
 
 let g:prosession_dir = '~/.vim/dirs/session/'
 
