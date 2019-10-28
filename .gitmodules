@@ -91,3 +91,6 @@
 [submodule ".vim/bundle/splitjoin"]
 	path = .vim/bundle/splitjoin
 	url = https://github.com/AndrewRadev/splitjoin.vim
+[submodule ".vim/bundle/jsx-pretty"]
+	path = .vim/bundle/jsx-pretty
+	url = https://github.com/MaxMEllon/vim-jsx-pretty.git
