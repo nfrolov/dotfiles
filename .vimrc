@@ -49,7 +49,7 @@ set number
 set autoindent
 set shiftround
 set nrformats-=octal
-set colorcolumn=80,100
+set colorcolumn=100,120
 set backspace=indent,eol,start
 set signcolumn=yes
 
