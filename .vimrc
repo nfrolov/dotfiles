@@ -88,8 +88,6 @@ let html_no_rendering = 1
 augroup vimrc
     au!
     au VimEnter * redrawstatus!
-    au FileType vim,php setlocal et sts=4 sw=4
-    au FileType html,xml,css,scss,javascript,json,jade setlocal et sts=2 sw=2
 augroup end
 
 
