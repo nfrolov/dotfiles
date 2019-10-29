@@ -95,14 +95,13 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_auto_loc_list = 2
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_stl_format = '%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}'
 
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
 let g:airline_section_y = "%{airline#util#wrap(&fenc.' '.&ff,0)}"
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#syntastic#error_symbol = 'E: '
+let g:airline#extensions#syntastic#stl_format_err = '%E{%fe #%e}'
+let g:airline#extensions#syntastic#warning_symbol = 'W: '
+let g:airline#extensions#syntastic#stl_format_warn = '%W{%fw #%w}'
 
 let g:ctrlp_match_window = 'min:15,max:15'
 let g:ctrlp_working_path_mode = 'ra'
