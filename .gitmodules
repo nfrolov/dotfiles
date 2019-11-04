@@ -85,3 +85,6 @@
 [submodule ".vim/bundle/jsx-pretty"]
 	path = .vim/bundle/jsx-pretty
 	url = https://github.com/MaxMEllon/vim-jsx-pretty.git
+[submodule ".vim/bundle/vcm"]
+	path = .vim/bundle/vcm
+	url = https://github.com/ajh17/VimCompletesMe.git
