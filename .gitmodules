@@ -88,3 +88,6 @@
 [submodule ".vim/bundle/vcm"]
 	path = .vim/bundle/vcm
 	url = https://github.com/ajh17/VimCompletesMe.git
+[submodule ".vim/bundle/lsc"]
+	path = .vim/bundle/lsc
+	url = https://github.com/natebosch/vim-lsc.git
