@@ -91,3 +91,6 @@
 [submodule ".vim/bundle/lsc"]
 	path = .vim/bundle/lsc
 	url = https://github.com/natebosch/vim-lsc.git
+[submodule ".vim/bundle/editorconfig"]
+	path = .vim/bundle/editorconfig
+	url = https://github.com/sgur/vim-editorconfig.git
