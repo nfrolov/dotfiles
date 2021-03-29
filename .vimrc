@@ -137,8 +137,6 @@ let g:gitgutter_sign_priority = 9
 
 let g:prosession_dir = '~/.vim/dirs/session/'
 
-let g:jsx_ext_required = 0
-
 let g:is_bash = 1
 
 let g:sql_type_default = 'pgsql'
