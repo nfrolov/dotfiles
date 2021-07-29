@@ -5,6 +5,7 @@
 [diff]
     mnemonicprefix = true
     compactionheuristic = true
+    wserrorhighlight = all
 [merge]
     conflictstyle = diff3
 [push]
