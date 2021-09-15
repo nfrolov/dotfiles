@@ -76,10 +76,6 @@ nnoremap gQ <nop>
 
 set background=dark
 set t_ut=
-let g:solarized_termtrans=1
-let g:solarized_visibility="normal"
-let g:colarized_contrast="normal"
-let g:colarized_hitrail=1
 colorscheme solarized
 
 let html_no_rendering = 1
