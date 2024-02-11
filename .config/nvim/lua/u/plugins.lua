@@ -1,0 +1,507 @@
+return {
+  {
+    'neanias/everforest-nvim',
+    lazy = true,
+    priority = 1000,
+    config = function ()
+      require('everforest').setup({
+        background = 'hard',
+        italics = false,
+      })
+      vim.cmd.colorscheme('everforest')
+    end,
+  },
+  {
+    'sainnhe/everforest',
+    lazy = false,
+    priority = 1000,
+    init = function ()
+      vim.api.nvim_create_autocmd('ColorScheme', {
+        pattern = 'everforest',
+        callback = function ()
+          vim.api.nvim_set_hl(0, 'EndOfBuffer', { link = 'NonText' })
+          vim.api.nvim_set_hl(0, '@tag.delimiter', { link = 'Grey' })
+          vim.api.nvim_set_hl(0, '@text', {})
+          vim.api.nvim_set_hl(0, '@text.title', {})
+          vim.api.nvim_set_hl(0, '@text.uri', {})
+          vim.api.nvim_set_hl(0, '@text.underline', {})
+          vim.api.nvim_set_hl(0, '@text.strike', {})
+        end,
+      })
+    end,
+    config = function ()
+      -- vim.g.everforest_background = 'hard'
+      vim.g.everforest_disable_italic_comment = true
+      vim.cmd.colorscheme('everforest')
+    end,
+  },
+  {
+    'tpope/vim-sleuth',
+    event = { 'BufReadPre', 'BufNewFile' },
+  },
+  {
+    'tpope/vim-fugitive',
+    event = 'VeryLazy',
+    init = function ()
+      vim.g.fugitive_dynamic_colors = 0
+    end,
+  },
+  {
+    'tpope/vim-eunuch',
+    event = 'VeryLazy',
+  },
+  {
+    'tpope/vim-commentary',
+    event = { 'BufReadPre', 'BufNewFile' },
+  },
+  {
+    'tpope/vim-unimpaired',
+    event = { 'BufReadPre', 'BufNewFile' },
+  },
+  {
+    'julian/vim-textobj-variable-segment',
+    dependencies = {
+      'kana/vim-textobj-user',
+    },
+    event = { 'BufReadPre', 'BufNewFile' },
+  },
+  {
+    'kylechui/nvim-surround',
+    event = { 'BufReadPre', 'BufNewFile' },
+    config = function ()
+      require('nvim-surround').setup({})
+    end
+  },
+  {
+    'folke/persistence.nvim',
+    lazy = true,
+    init = function ()
+      if vim.fn.argc() ~= 0 then
+        return
+      end
+      vim.api.nvim_create_autocmd('User', {
+        pattern = 'VeryLazy',
+        once = true,
+        callback = function ()
+          require('persistence').setup()
+          vim.schedule(require('persistence').load)
+        end,
+      })
+    end,
+  },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    dependencies = {
+      'nvim-treesitter/playground',
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      -- 'yioneko/nvim-yati',
+    },
+    event = { 'BufReadPost', 'BufNewFile' },
+    config = function ()
+      require('nvim-treesitter.configs').setup({
+        ensure_installed = {
+          'c',
+          'cmake',
+          'css',
+          'html',
+          'javascript',
+          'json',
+          'lua',
+          'lua',
+          'scss',
+          'tsx',
+          'typescript',
+          'vim',
+          'vimdoc',
+          'yaml',
+        },
+        highlight = {
+          enable = true,
+          disable = { 'scss' },
+          additional_vim_regex_highlighting = { 'javascript' },
+        },
+        -- yati = {
+        --   enable = true,
+        --   disable = {},
+        --   default_lazy = false,
+        -- },
+        indent = {
+          enable = false,
+        },
+        playground = {
+          enable = true,
+        },
+        textobjects = {
+          select = {
+            enable = true,
+            lookahead = false,
+            keymaps = {
+              ["aa"] = "@parameter.outer",
+              ["ia"] = "@parameter.inner",
+            },
+          },
+        },
+      })
+    end,
+    build = ':TSUpdate',
+  },
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+    },
+    event = {},
+    -- event = { 'BufReadPost', 'BufNewFile' },
+    config = function ()
+      require('treesitter-context').setup({
+        max_lines = 4,
+        trim_scope = 'inner',
+      })
+    end,
+  },
+  {
+    'wansmer/treesj',
+    keys = {
+      { 'gS', function () require('treesj').split() end },
+      { 'gJ', function () require('treesj').join() end },
+    },
+    config = function ()
+      require('treesj').setup({
+        use_default_keymaps = false,
+      })
+    end,
+  },
+  {
+    'nvim-telescope/telescope.nvim',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-file-browser.nvim',
+    },
+    cmd = { 'Telescope' },
+    keys = {
+      { '<c-p>', function () require('telescope.builtin').git_files() end },
+      { '<leader>fb', function () require('telescope.builtin').buffers() end },
+      { '<leader>fo', function () require('telescope.builtin').oldfiles({ cwd = vim.loop.cwd() }) end },
+      { '<leader>fg', function () require('telescope.builtin').live_grep() end },
+      { '<leader>fb', function () require('telescope').extensions.file_browser.file_browser() end },
+    },
+    config = function ()
+      local actions = require('telescope.actions')
+      require('telescope').setup({
+        defaults = {
+          prompt_prefix = ' ',
+          selection_caret = ' ',
+          preview = false,
+          mappings = {
+            i = {
+              ['<esc>'] = actions.close,
+              ['<c-q>'] = false,
+              ['<m-q>'] = false,
+              ['<c-x>'] = false,
+              ['<c-v>'] = false,
+              ['<c-t>'] = false,
+              ['<c-u>'] = false,
+              ['<c-d>'] = false,
+            },
+          },
+        },
+        pickers = {
+          git_files = {
+            theme = 'dropdown',
+            layout_config = {
+              width = 120,
+              height = 30,
+            },
+            show_untracked = true,
+          },
+          buffers = {
+            theme = 'dropdown',
+          },
+          oldfiles = {
+            theme = 'dropdown',
+          },
+          live_grep = {
+            preview = true,
+          },
+        },
+        extensions = {
+          file_browser = {
+            theme = 'dropdown',
+            layout_config = {
+              width = 120,
+              height = 30,
+            },
+            depth = false,
+            display_stat = false,
+            git_status = false,
+            prompt_path = true,
+          },
+        },
+      })
+      require('telescope').load_extension('file_browser')
+    end,
+  },
+  {
+    'nvim-lualine/lualine.nvim',
+    event = 'VeryLazy',
+    config = function ()
+      require('lualine').setup({
+        options = {
+          icons_enabled = false,
+          -- theme = 'everforest',
+          -- theme = require('lualine.themes.everforest'),
+          component_separators = { left = '|', right = '|' },
+          section_separators = { left = '', right = '' },
+        },
+        sections = {
+          lualine_a = {
+            { 'mode' },
+          },
+          lualine_b = {
+            { 'diagnostics' }
+          },
+          lualine_c = {
+            { 'filename', path = 1 },
+          },
+          lualine_x = {
+            { 'filetype' },
+          },
+          lualine_y = {},
+        },
+        tabline = {
+          lualine_a = {
+            { 'buffers', show_filename_only = false, symbols = { modified = '+' } },
+          },
+          lualine_b = {},
+          lualine_c = {},
+          lualine_x = {},
+          lualine_y = {},
+          lualine_z = {}
+        },
+      })
+    end,
+  },
+  {
+    'hrsh7th/nvim-cmp',
+    dependencies = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'dcampos/nvim-snippy',
+      'dcampos/cmp-snippy',
+    },
+    event = { 'InsertEnter' },
+    config = function ()
+      local cmp = require('cmp')
+      local snippy = require('snippy')
+      cmp.setup({
+        snippet = {
+          expand = function (args)
+            require('snippy').expand_snippet(args.body)
+          end,
+        },
+        mapping = cmp.config.mapping.preset.insert({
+          ['<tab>'] = function (fallback)
+            if cmp.visible() then
+              cmp.select_next_item({ behavior = 'select' })
+            elseif snippy.can_expand_or_advance() then
+              snippy.expand_or_advance()
+            else
+              fallback()
+            end
+          end,
+          ['<s-tab>'] = function (fallback)
+            if cmp.visible() then
+              cmp.select_prev_item({ behavior = 'select' })
+            elseif snippy.can_jump(-1) then
+              snippy.previous()
+            else
+              fallback()
+            end
+          end,
+          ['<c-n>'] = function ()
+            if cmp.visible() then
+              cmp.select_next_item({ behavior = 'select' })
+            else
+              cmp.complete()
+            end
+          end,
+          ['<c-p>'] = function ()
+            if cmp.visible() then
+              cmp.select_prev_item({ behavior = 'select' })
+            else
+              cmp.complete()
+            end
+          end,
+          ['<cr>'] = cmp.mapping.confirm({ select = false }),
+        }),
+        sources = cmp.config.sources({
+          { name = 'nvim_lsp' },
+          {
+            name = 'buffer',
+            option = {
+              keyword_pattern = [[\k\+]],
+              get_bufnrs = function ()
+                return vim.api.nvim_list_bufs()
+              end,
+            },
+          },
+          { name = 'path' },
+        }),
+      })
+    end,
+  },
+  {
+    'j-hui/fidget.nvim',
+    config = function ()
+      require('fidget').setup({})
+    end,
+  },
+  {
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      {
+        'folke/neodev.nvim',
+        config = function ()
+          require('neodev').setup({})
+        end,
+      },
+      {
+        'williamboman/mason.nvim',
+        build = ':MasonUpdate',
+      },
+      'williamboman/mason-lspconfig.nvim',
+    },
+    event = { 'BufReadPre', 'BufNewFile' },
+    config = function ()
+      vim.diagnostic.config({
+        underline = true,
+        update_in_insert = true,
+        virtual_text = { spacing = 3, prefix = '●' },
+        severity_sort = true,
+      })
+
+      local servers = {
+        lua_ls = {
+          settings = {
+            Lua = {
+              workspace = {
+                checkThirdParty = false,
+              },
+            },
+          },
+        },
+        tsserver = {
+          init_options = {
+            preferences = {
+              disableSuggestions = true,
+              jsxAttributeCompletionStyle = 'none',
+            },
+          },
+        },
+        jsonls = {},
+        eslint = {
+          on_attach = function (_, bufnr)
+            vim.api.nvim_create_autocmd('BufWritePre', {
+              buffer = bufnr,
+              command = 'EslintFixAll',
+            })
+          end,
+        },
+        cssmodules_ls = {},
+        html = {},
+        cssls = {},
+        stylelint_lsp = {},
+        clangd = {
+          cmd = {
+            'clangd',
+            '--background-index',
+            '--query-driver=/opt/homebrew/bin/arm-none-eabi-*',
+            '--function-arg-placeholders=0',
+          },
+        },
+      }
+
+      require('mason').setup()
+      require('mason-lspconfig').setup({
+        ensure_installed = vim.tbl_keys(servers),
+      })
+
+      local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+      require('mason-lspconfig').setup_handlers({
+        function (server_name)
+          local server_options = servers[server_name]
+          require('lspconfig')[server_name].setup(vim.tbl_extend('force', server_options, {
+            capabilities = capabilities,
+            on_attach = function (client, bufnr)
+              client.server_capabilities.semanticTokensProvider = nil
+              if server_options.on_attach ~= nil then
+                server_options.on_attach(client, bufnr)
+              end
+              vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr })
+              vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
+              vim.keymap.set('n', '[d', vim.diagnostic.goto_next, { buffer = bufnr })
+              vim.keymap.set('n', ']d', vim.diagnostic.goto_prev, { buffer = bufnr })
+              vim.keymap.set('i', '<c-h>', vim.lsp.buf.signature_help, { buffer = bufnr })
+            end,
+            flags = {
+              debounce_text_changes = 150,
+            },
+          }))
+        end,
+      })
+    end,
+  },
+  {
+    'smjonas/inc-rename.nvim',
+    cmd = { 'IncRename' },
+    keys = {
+      { '<leader>rn', ':IncRename ' },
+    },
+    config = function ()
+      require('inc_rename').setup()
+    end,
+  },
+  {
+    'lewis6991/gitsigns.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
+    config = function ()
+      require('gitsigns').setup({
+        signs = {
+          add = { text = '┃' },
+          change = { text = '┃' },
+          delete = { text = '▁' },
+          topdelete = { text = '▔' },
+          changedelete = { text = '┃' },
+        },
+        attach_to_untracked = false,
+      })
+    end,
+  },
+  {
+    'sindrets/diffview.nvim',
+    event = 'VeryLazy',
+    config = function ()
+      require('diffview').setup({})
+    end,
+  },
+  {
+    'yioneko/vim-tmindent',
+    lazy = true,
+    config = function ()
+      require('tmindent').setup({
+        enabled = function () return true end,
+        use_treesitter = function () return true end,
+      })
+    end,
+  },
+  { 'pangloss/vim-javascript' },
+  { 'maxmellon/vim-jsx-pretty' },
+  {
+    'lifepillar/pgsql.vim',
+    init = function ()
+      vim.g.sql_type_default = 'pgsql'
+    end,
+  },
+}
