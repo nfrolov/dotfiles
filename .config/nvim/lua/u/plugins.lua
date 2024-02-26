@@ -441,8 +441,8 @@ return {
               end
               vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr })
               vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
-              vim.keymap.set('n', '[d', vim.diagnostic.goto_next, { buffer = bufnr })
-              vim.keymap.set('n', ']d', vim.diagnostic.goto_prev, { buffer = bufnr })
+              vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { buffer = bufnr })
+              vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { buffer = bufnr })
               vim.keymap.set('i', '<c-h>', vim.lsp.buf.signature_help, { buffer = bufnr })
             end,
             flags = {
@@ -450,6 +450,32 @@ return {
             },
           }))
         end,
+      })
+    end,
+  },
+  {
+    'zbirenbaum/copilot.lua',
+    cmd = { 'Copilot' },
+    event = { 'InsertEnter' },
+    config = function ()
+      require('copilot').setup({
+        panel = {
+          enabled = false,
+        },
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+        },
+        filetypes = {
+          sh = function ()
+            local filename = vim.fs.basename(vim.api.nvim_buf_get_name(0))
+            if filename == '.env' or string.sub(filename, 1, 5) == '.env.' then
+              return false
+            end
+            return true
+          end,
+          ['*'] = true,
+        },
       })
     end,
   },
@@ -476,6 +502,16 @@ return {
           changedelete = { text = '┃' },
         },
         attach_to_untracked = false,
+      })
+    end,
+  },
+  {
+    'nvchad/nvim-colorizer.lua',
+    event = { 'BufReadPre', 'BufNewFile' },
+    config = function ()
+      require('colorizer').setup({
+        user_default_options = { names = false, mode = 'virtualtext' },
+        buftypes = { '!prompt', '!popup', '!mason' },
       })
     end,
   },
