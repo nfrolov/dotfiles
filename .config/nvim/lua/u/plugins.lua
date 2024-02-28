@@ -150,8 +150,7 @@ return {
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
     },
-    event = {},
-    -- event = { 'BufReadPost', 'BufNewFile' },
+    event = { 'BufReadPost', 'BufNewFile' },
     config = function ()
       require('treesitter-context').setup({
         max_lines = 4,
@@ -195,7 +194,6 @@ return {
           mappings = {
             i = {
               ['<esc>'] = actions.close,
-              ['<c-q>'] = false,
               ['<m-q>'] = false,
               ['<c-x>'] = false,
               ['<c-v>'] = false,
@@ -300,6 +298,9 @@ return {
             require('snippy').expand_snippet(args.body)
           end,
         },
+        completion = {
+          keyword_length = 3,
+        },
         mapping = cmp.config.mapping.preset.insert({
           ['<tab>'] = function (fallback)
             if cmp.visible() then
@@ -377,7 +378,7 @@ return {
       vim.diagnostic.config({
         underline = true,
         update_in_insert = true,
-        virtual_text = { spacing = 3, prefix = '●' },
+        virtual_text = false, -- { spacing = 3, prefix = '●' },
         severity_sort = true,
       })
 
@@ -401,12 +402,14 @@ return {
         },
         jsonls = {},
         eslint = {
+          --[[
           on_attach = function (_, bufnr)
             vim.api.nvim_create_autocmd('BufWritePre', {
               buffer = bufnr,
               command = 'EslintFixAll',
             })
           end,
+          --]]
         },
         cssmodules_ls = {},
         html = {},
