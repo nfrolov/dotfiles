@@ -183,6 +183,7 @@ return {
       { '<leader>fo', function () require('telescope.builtin').oldfiles({ cwd = vim.loop.cwd() }) end },
       { '<leader>fg', function () require('telescope.builtin').live_grep() end },
       { '<leader>fb', function () require('telescope').extensions.file_browser.file_browser() end },
+      { '<leader>lr', function () require('telescope.builtin').lsp_references() end },
     },
     config = function ()
       local actions = require('telescope.actions')
@@ -299,7 +300,7 @@ return {
           end,
         },
         completion = {
-          keyword_length = 3,
+          -- keyword_length = 3,
         },
         mapping = cmp.config.mapping.preset.insert({
           ['<tab>'] = function (fallback)
@@ -442,11 +443,11 @@ return {
               if server_options.on_attach ~= nil then
                 server_options.on_attach(client, bufnr)
               end
-              vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = bufnr })
-              vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
-              vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { buffer = bufnr })
-              vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { buffer = bufnr })
-              vim.keymap.set('i', '<c-h>', vim.lsp.buf.signature_help, { buffer = bufnr })
+              vim.keymap.set('n', '<c-]>', function () vim.lsp.buf.definition() end, { buffer = bufnr })
+              vim.keymap.set('n', 'K', function () vim.lsp.buf.hover() end, { buffer = bufnr })
+              vim.keymap.set('n', '[d', function () vim.diagnostic.goto_prev() end, { buffer = bufnr })
+              vim.keymap.set('n', ']d', function () vim.diagnostic.goto_next() end, { buffer = bufnr })
+              vim.keymap.set('i', '<c-h>', function () vim.lsp.buf.signature_help() end, { buffer = bufnr })
             end,
             flags = {
               debounce_text_changes = 150,
