@@ -153,7 +153,7 @@ return {
     event = { 'BufReadPost', 'BufNewFile' },
     config = function ()
       require('treesitter-context').setup({
-        max_lines = 4,
+        max_lines = 6,
         trim_scope = 'inner',
       })
     end,
@@ -380,6 +380,7 @@ return {
         underline = true,
         update_in_insert = true,
         virtual_text = false, -- { spacing = 3, prefix = '●' },
+        signs = false,
         severity_sort = true,
       })
 
@@ -424,6 +425,7 @@ return {
             '--function-arg-placeholders=0',
           },
         },
+        omnisharp = {},
       }
 
       require('mason').setup()
@@ -491,6 +493,59 @@ return {
     },
     config = function ()
       require('inc_rename').setup()
+    end,
+  },
+  {
+    'stevearc/conform.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
+    cmd = { 'ConformInfo' },
+    config = function ()
+      require('conform').setup({
+        format_on_save = {
+          timeout_ms = 500,
+          lsp_fallback = false,
+        },
+        notify_on_error = true,
+        formatters_by_ft = {
+          javascript = { { 'prettierd', 'prettier' } },
+          javascriptreact = { { 'prettierd', 'prettier' } },
+          typescript = { { 'prettierd', 'prettier' } },
+          typescriptreact = { { 'prettierd', 'prettier' } },
+        },
+      })
+    end,
+  },
+  {
+    'kosayoda/nvim-lightbulb',
+    event = { 'BufReadPre', 'BufNewFile' },
+    config = function ()
+      require('nvim-lightbulb').setup({
+        priority = 10,
+        hide_in_unfocused_buffer = false,
+        action_kinds = { 'quickfix' },
+        sign = {
+          enabled = false,
+        },
+        virtual_text = {
+          enabled = true,
+          text = '',
+          hl = 'Yellow',
+        },
+        autocmd = {
+          enabled = true,
+          updatetime = -1,
+        },
+      })
+    end,
+  },
+  {
+    'aznhe21/actions-preview.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
+    keys = {
+      { '<leader>la', mode = { 'n', 'v' }, function () require('actions-preview').code_actions() end },
+    },
+    config = function ()
+      require('actions-preview').setup({})
     end,
   },
   {

@@ -12,8 +12,11 @@ vim.opt.showmode = false
 vim.opt.fileformats = { 'unix', 'dos', 'mac' }
 vim.opt.list = true
 vim.opt.listchars = { tab = '»·', trail = '·', extends = '>', precedes = '<', nbsp = '+' }
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.linebreak = true
+vim.opt.breakindent = true
+vim.opt.breakindentopt = { 'shift:-2' }
+vim.opt.showbreak = '↪ '
 
 vim.opt.number = true
 vim.opt.relativenumber = true
