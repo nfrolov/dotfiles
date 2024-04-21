@@ -1,17 +1,5 @@
 return {
   {
-    'neanias/everforest-nvim',
-    lazy = true,
-    priority = 1000,
-    config = function ()
-      require('everforest').setup({
-        background = 'hard',
-        italics = false,
-      })
-      vim.cmd.colorscheme('everforest')
-    end,
-  },
-  {
     'sainnhe/everforest',
     lazy = false,
     priority = 1000,
