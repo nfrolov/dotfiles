@@ -7,7 +7,7 @@
   "conform.nvim": { "branch": "master", "commit": "a6965ac128eba75537ec2bc5ddd5d5e357062bdc" },
   "copilot.lua": { "branch": "master", "commit": "f7612f5af4a7d7615babf43ab1e67a2d790c13a6" },
   "diffview.nvim": { "branch": "main", "commit": "3dc498c9777fe79156f3d32dddd483b8b3dbd95f" },
-  "everforest": { "branch": "master", "commit": "83a4361d0797ff8e0c96dd750e60947bfab936e4" },
+  "everforest": { "branch": "master", "commit": "4d67edd8d4701b00cee37073d53053a650264541" },
   "fidget.nvim": { "branch": "main", "commit": "1ba38e4cbb24683973e00c2e36f53ae64da38ef5" },
   "gitsigns.nvim": { "branch": "main", "commit": "035da036e68e509ed158414416c827d022d914bd" },
   "inc-rename.nvim": { "branch": "main", "commit": "5e03e986625961d1fac296d1bf332a6510c3add6" },

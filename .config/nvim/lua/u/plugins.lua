@@ -7,13 +7,18 @@ return {
       vim.api.nvim_create_autocmd('ColorScheme', {
         pattern = 'everforest',
         callback = function ()
-          vim.api.nvim_set_hl(0, 'EndOfBuffer', { link = 'NonText' })
           vim.api.nvim_set_hl(0, '@tag.delimiter', { link = 'Grey' })
           vim.api.nvim_set_hl(0, '@text', {})
           vim.api.nvim_set_hl(0, '@text.title', {})
           vim.api.nvim_set_hl(0, '@text.uri', {})
           vim.api.nvim_set_hl(0, '@text.underline', {})
           vim.api.nvim_set_hl(0, '@text.strike', {})
+          vim.api.nvim_set_hl(0, '@constructor.javascript', { link = '@type' })
+          vim.api.nvim_set_hl(0, '@constructor.typescript', { link = '@type' })
+          vim.api.nvim_set_hl(0, '@constructor.tsx', { link = '@type' })
+          vim.api.nvim_set_hl(0, '@include.javascript', { link = '@keyword' })
+          vim.api.nvim_set_hl(0, '@include.typescript', { link = '@keyword' })
+          vim.api.nvim_set_hl(0, '@include.tsx', { link = '@keyword' })
         end,
       })
     end,
