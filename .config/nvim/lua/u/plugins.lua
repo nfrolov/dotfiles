@@ -83,7 +83,7 @@ return {
         pattern = 'VeryLazy',
         once = true,
         callback = function ()
-          require('persistence').setup()
+          require('persistence').setup({ save_empty = true })
           vim.schedule(require('persistence').load)
         end,
       })
