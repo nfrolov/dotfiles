@@ -67,19 +67,13 @@ return {
   },
   {
     'folke/persistence.nvim',
-    lazy = true,
-    init = function ()
+    event = { 'VeryLazy' },
+    config = function ()
       if vim.fn.argc() ~= 0 then
         return
       end
-      vim.api.nvim_create_autocmd('User', {
-        pattern = 'VeryLazy',
-        once = true,
-        callback = function ()
-          require('persistence').setup({ save_empty = true })
-          vim.schedule(require('persistence').load)
-        end,
-      })
+      require('persistence').setup({ save_empty = true })
+      vim.schedule(require('persistence').load)
     end,
   },
   {
