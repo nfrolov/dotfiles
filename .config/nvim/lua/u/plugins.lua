@@ -562,13 +562,6 @@ return {
     end,
   },
   {
-    'sindrets/diffview.nvim',
-    event = 'VeryLazy',
-    config = function ()
-      require('diffview').setup({})
-    end,
-  },
-  {
     'yioneko/vim-tmindent',
     lazy = true,
     config = function ()
