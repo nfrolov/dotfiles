@@ -341,12 +341,6 @@ return {
     end,
   },
   {
-    'j-hui/fidget.nvim',
-    config = function ()
-      require('fidget').setup({})
-    end,
-  },
-  {
     'neovim/nvim-lspconfig',
     dependencies = {
       {
@@ -360,6 +354,12 @@ return {
         build = ':MasonUpdate',
       },
       'williamboman/mason-lspconfig.nvim',
+      {
+        'j-hui/fidget.nvim',
+        config = function ()
+          require('fidget').setup({})
+        end,
+      },
     },
     event = { 'BufReadPre', 'BufNewFile' },
     config = function ()
