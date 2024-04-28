@@ -378,6 +378,11 @@ return {
               workspace = {
                 checkThirdParty = false,
               },
+              diagnostics = {
+                disable = {
+                  'missing-fields',
+                },
+              }
             },
           },
         },
@@ -460,14 +465,13 @@ return {
           auto_trigger = true,
         },
         filetypes = {
-          sh = function ()
+          ['*'] = function ()
             local filename = vim.fs.basename(vim.api.nvim_buf_get_name(0))
             if filename == '.env' or string.sub(filename, 1, 5) == '.env.' then
               return false
             end
             return true
           end,
-          ['*'] = true,
         },
       })
     end,
@@ -479,7 +483,7 @@ return {
       { '<leader>rn', ':IncRename ' },
     },
     config = function ()
-      require('inc_rename').setup()
+      require('inc_rename').setup({})
     end,
   },
   {
