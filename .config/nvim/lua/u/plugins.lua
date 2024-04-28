@@ -166,9 +166,17 @@ return {
     cmd = { 'Telescope' },
     keys = {
       { '<c-p>', function () require('telescope.builtin').git_files() end },
-      { '<leader>fb', function () require('telescope.builtin').buffers() end },
+      { '<leader>ff', function () require('telescope.builtin').find_files() end },
       { '<leader>fo', function () require('telescope.builtin').oldfiles({ cwd = vim.loop.cwd() }) end },
-      { '<leader>fg', function () require('telescope.builtin').live_grep() end },
+      { '<leader>fh', function () require('telescope.builtin').help_tags() end },
+      {
+        '<leader>fg',
+        function ()
+          require('telescope.builtin').live_grep({
+            default_text = vim.fn.expand('<cword>'),
+          })
+        end,
+      },
       { '<leader>fb', function () require('telescope').extensions.file_browser.file_browser() end },
       { '<leader>lr', function () require('telescope.builtin').lsp_references() end },
     },
@@ -182,12 +190,8 @@ return {
           mappings = {
             i = {
               ['<esc>'] = actions.close,
-              ['<m-q>'] = false,
-              ['<c-x>'] = false,
-              ['<c-v>'] = false,
-              ['<c-t>'] = false,
-              ['<c-u>'] = false,
-              ['<c-d>'] = false,
+              ['<tab>'] = actions.move_selection_next,
+              ['<s-tab>'] = actions.move_selection_previous,
             },
           },
         },
@@ -200,13 +204,22 @@ return {
             },
             show_untracked = true,
           },
-          buffers = {
+          find_files = {
             theme = 'dropdown',
+            layout_config = {
+              width = 120,
+              height = 30,
+            },
           },
           oldfiles = {
             theme = 'dropdown',
           },
           live_grep = {
+            theme = 'dropdown',
+            layout_config = {
+              width = 120,
+              height = 30,
+            },
             preview = true,
           },
         },
