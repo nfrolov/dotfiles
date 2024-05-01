@@ -515,6 +515,8 @@ return {
           javascriptreact = { { 'prettierd', 'prettier' } },
           typescript = { { 'prettierd', 'prettier' } },
           typescriptreact = { { 'prettierd', 'prettier' } },
+          json = { { 'prettierd', 'prettier' } },
+          html = { { 'prettierd', 'prettier' } },
         },
       })
     end,
