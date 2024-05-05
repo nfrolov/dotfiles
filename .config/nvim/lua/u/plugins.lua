@@ -81,7 +81,6 @@ return {
     dependencies = {
       'nvim-treesitter/playground',
       'nvim-treesitter/nvim-treesitter-textobjects',
-      -- 'yioneko/nvim-yati',
     },
     event = { 'BufReadPost', 'BufNewFile' },
     config = function ()
@@ -107,11 +106,6 @@ return {
           disable = { 'scss' },
           additional_vim_regex_highlighting = { 'javascript' },
         },
-        -- yati = {
-        --   enable = true,
-        --   disable = {},
-        --   default_lazy = false,
-        -- },
         indent = {
           enable = false,
         },
@@ -119,12 +113,13 @@ return {
           enable = true,
         },
         textobjects = {
-          select = {
+          move = {
             enable = true,
-            lookahead = false,
-            keymaps = {
-              ["aa"] = "@parameter.outer",
-              ["ia"] = "@parameter.inner",
+            goto_next_start = {
+              [']m'] = '@function.outer',
+            },
+            goto_previous_start = {
+              ['[m'] = '@function.outer',
             },
           },
         },
