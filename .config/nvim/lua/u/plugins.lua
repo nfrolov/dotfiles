@@ -135,8 +135,7 @@ return {
     event = { 'BufReadPost', 'BufNewFile' },
     config = function ()
       require('treesitter-context').setup({
-        max_lines = 6,
-        trim_scope = 'inner',
+        max_lines = 0,
       })
     end,
   },
@@ -214,6 +213,14 @@ return {
             layout_config = {
               width = 120,
               height = 30,
+            },
+            preview = true,
+          },
+          lsp_references = {
+            theme = 'dropdown',
+            layout_config = {
+              width = 0.8,
+              height = 20,
             },
             preview = true,
           },
