@@ -159,6 +159,7 @@ return {
     },
     cmd = { 'Telescope' },
     keys = {
+      { '<leader><leader>', function () require('telescope.builtin').resume() end },
       { '<c-p>', function () require('telescope.builtin').git_files() end },
       { '<leader>ff', function () require('telescope.builtin').find_files() end },
       { '<leader>fo', function () require('telescope.builtin').oldfiles({ cwd = vim.loop.cwd() }) end },
