@@ -588,7 +588,7 @@ return {
     config = function ()
       require('colorizer').setup({
         user_default_options = { names = false, mode = 'virtualtext' },
-        buftypes = { '!prompt', '!popup', '!mason' },
+        buftypes = { '!prompt', '!popup', '!mason', '!nofile' },
       })
     end,
   },

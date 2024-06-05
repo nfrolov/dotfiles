@@ -8,6 +8,9 @@ require('lazy').setup('u.plugins', {
   install = {
     missing = false,
   },
+  ui = {
+    backdrop = 100,
+  },
   change_detection = {
     enabled = true,
     notify = false,
