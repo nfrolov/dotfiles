@@ -13,5 +13,9 @@ vim.filetype.add({
     ['Snapfile'] = 'ruby',
     ['Scanfile'] = 'ruby',
     ['Podfile'] = 'ruby',
+    ['.env'] = 'sh',
+  },
+  pattern = {
+    ['%.env%.[%w_.-]+'] = 'sh',
   },
 })
