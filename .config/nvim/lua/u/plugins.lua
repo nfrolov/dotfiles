@@ -68,11 +68,9 @@ return {
   {
     'folke/persistence.nvim',
     event = { 'VeryLazy' },
+    cond = vim.fn.argc() == 0,
     config = function ()
-      if vim.fn.argc() ~= 0 then
-        return
-      end
-      require('persistence').setup({ save_empty = true })
+      require('persistence').setup({ need = 0, branch = false })
       vim.schedule(require('persistence').load)
     end,
   },
