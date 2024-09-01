@@ -172,7 +172,14 @@ return {
         end,
       },
       { '<leader>fb', function () require('telescope').extensions.file_browser.file_browser() end },
-      { '<leader>lr', function () require('telescope.builtin').lsp_references() end },
+      {
+        '<leader>lr',
+        function ()
+          require('telescope.builtin').lsp_references({
+            include_current_line = true,
+          })
+        end,
+      },
     },
     config = function ()
       local actions = require('telescope.actions')
