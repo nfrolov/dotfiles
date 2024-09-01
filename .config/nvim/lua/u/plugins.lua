@@ -366,12 +366,6 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = {
       {
-        'folke/neodev.nvim',
-        config = function ()
-          require('neodev').setup({})
-        end,
-      },
-      {
         'williamboman/mason.nvim',
         build = ':MasonUpdate',
       },
@@ -482,6 +476,13 @@ return {
     end,
   },
   {
+    'folke/lazydev.nvim',
+    ft = { 'lua' },
+    config = function ()
+      require('lazydev').setup({})
+    end,
+  },
+  {
     'zbirenbaum/copilot.lua',
     cmd = { 'Copilot' },
     event = { 'InsertEnter' },
@@ -524,16 +525,15 @@ return {
       require('conform').setup({
         format_on_save = {
           timeout_ms = 500,
-          lsp_fallback = false,
         },
         notify_on_error = true,
         formatters_by_ft = {
-          javascript = { { 'prettierd', 'prettier' } },
-          javascriptreact = { { 'prettierd', 'prettier' } },
-          typescript = { { 'prettierd', 'prettier' } },
-          typescriptreact = { { 'prettierd', 'prettier' } },
-          json = { { 'prettierd', 'prettier' } },
-          html = { { 'prettierd', 'prettier' } },
+          javascript = { 'prettierd', 'prettier', stop_after_first = true },
+          javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+          typescript = { 'prettierd', 'prettier', stop_after_first = true },
+          typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
+          json = { 'prettierd', 'prettier', stop_after_first = true },
+          html = { 'prettierd', 'prettier', stop_after_first = true },
         },
       })
     end,
@@ -583,6 +583,7 @@ return {
           topdelete = { text = '▔' },
           changedelete = { text = '┃' },
         },
+        signs_staged_enable = false,
         attach_to_untracked = false,
       })
     end,
