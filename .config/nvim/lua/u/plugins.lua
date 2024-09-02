@@ -16,6 +16,9 @@ return {
           vim.api.nvim_set_hl(0, '@tag.javascript', { link = '@type' })
           vim.api.nvim_set_hl(0, '@tag.typescript', { link = '@type' })
           vim.api.nvim_set_hl(0, '@tag.tsx', { link = '@type' })
+          vim.api.nvim_set_hl(0, '@tag.builtin.javascript', { link = '@tag' })
+          vim.api.nvim_set_hl(0, '@tag.builtin.typescript', { link = '@tag' })
+          vim.api.nvim_set_hl(0, '@tag.builtin.tsx', { link = '@tag' })
           vim.api.nvim_set_hl(0, '@keyword.import.javascript', { link = '@keyword' })
           vim.api.nvim_set_hl(0, '@keyword.import.typescript', { link = '@keyword' })
           vim.api.nvim_set_hl(0, '@keyword.import.tsx', { link = '@keyword' })
@@ -90,6 +93,7 @@ return {
           'css',
           'html',
           'javascript',
+          'jsdoc',
           'json',
           'lua',
           'lua',
