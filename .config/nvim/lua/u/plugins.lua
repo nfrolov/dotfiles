@@ -80,7 +80,6 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
-      'nvim-treesitter/playground',
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
     event = { 'BufReadPost', 'BufNewFile' },
@@ -433,9 +432,11 @@ return {
         clangd = {
           cmd = {
             'clangd',
+            '--compile-commands-dir=build',
             '--background-index',
             '--query-driver=/opt/homebrew/bin/arm-none-eabi-*',
             '--function-arg-placeholders=0',
+            '-j=16',
           },
         },
         omnisharp = {
