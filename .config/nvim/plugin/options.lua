@@ -31,6 +31,8 @@ vim.opt.pumheight = 16
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = 'number'
 
+vim.opt.wildmode = { 'longest:full', 'full' }
+
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
