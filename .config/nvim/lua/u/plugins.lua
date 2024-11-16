@@ -389,7 +389,7 @@ return {
       vim.diagnostic.config({
         underline = true,
         update_in_insert = true,
-        virtual_text = false, -- { spacing = 3, prefix = '●' },
+        virtual_text = { spacing = 3, prefix = '●' },
         signs = false,
         severity_sort = true,
       })
