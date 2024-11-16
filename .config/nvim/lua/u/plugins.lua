@@ -179,7 +179,7 @@ return {
       },
       { '<leader>fb', function () require('telescope').extensions.file_browser.file_browser() end },
       {
-        '<leader>lr',
+        '<leader>rr',
         function ()
           require('telescope.builtin').lsp_references({
             include_current_line = true,
@@ -469,11 +469,7 @@ return {
               if server_options.on_attach ~= nil then
                 server_options.on_attach(client, bufnr)
               end
-              vim.keymap.set('n', '<c-]>', function () vim.lsp.buf.definition() end, { buffer = bufnr })
-              vim.keymap.set('n', 'K', function () vim.lsp.buf.hover() end, { buffer = bufnr })
-              vim.keymap.set('n', '[d', function () vim.diagnostic.goto_prev() end, { buffer = bufnr })
-              vim.keymap.set('n', ']d', function () vim.diagnostic.goto_next() end, { buffer = bufnr })
-              vim.keymap.set('i', '<c-h>', function () vim.lsp.buf.signature_help() end, { buffer = bufnr })
+              vim.keymap.set('i', '<c-s>', function () vim.lsp.buf.signature_help() end, { buffer = bufnr })
             end,
             flags = {
               debounce_text_changes = 150,
@@ -573,7 +569,7 @@ return {
     'aznhe21/actions-preview.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
     keys = {
-      { '<leader>la', mode = { 'n', 'v' }, function () require('actions-preview').code_actions() end },
+      { '<leader>ra', mode = { 'n', 'v' }, function () require('actions-preview').code_actions() end },
     },
     config = function ()
       require('actions-preview').setup({})
