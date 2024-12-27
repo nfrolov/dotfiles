@@ -1,0 +1,27 @@
+shell-integration-features = false
+
+font-family = JetBrainsMonoNL Nerd Font Mono
+font-size = 12
+font-style = Light
+font-style-bold = Light
+font-style-italic = Light Italic
+font-style-bold-italic = Light Italic
+font-thicken = true
+
+macos-titlebar-style = native
+macos-titlebar-proxy-icon = hidden
+macos-option-as-alt = true
+
+window-width = 140
+window-height = 40
+window-padding-x = 5
+window-padding-y = 5
+window-step-resize = true
+window-theme = system
+window-colorspace = display-p3
+
+bold-is-bright = true
+theme = everforest
+
+keybind = global:cmd+grave_accent=toggle_quick_terminal
+quick-terminal-animation-duration = 0
