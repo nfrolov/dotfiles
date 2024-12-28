@@ -20,6 +20,9 @@ window-step-resize = true
 window-theme = system
 window-colorspace = display-p3
 
+window-inherit-working-directory = false
+window-inherit-font-size = false
+
 bold-is-bright = true
 theme = everforest
 
