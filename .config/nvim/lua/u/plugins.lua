@@ -13,6 +13,7 @@ return {
           vim.api.nvim_set_hl(0, '@markup.strikethrough', {})
           vim.api.nvim_set_hl(0, '@markup.underline', {})
           vim.api.nvim_set_hl(0, '@string.special.url.html', {})
+          vim.api.nvim_set_hl(0, '@string.special.url.astro', {})
           vim.api.nvim_set_hl(0, '@tag.javascript', { link = '@type' })
           vim.api.nvim_set_hl(0, '@tag.typescript', { link = '@type' })
           vim.api.nvim_set_hl(0, '@tag.tsx', { link = '@type' })
@@ -89,6 +90,7 @@ return {
     config = function ()
       require('nvim-treesitter.configs').setup({
         ensure_installed = {
+          'astro',
           'c',
           'c_sharp',
           'cmake',
@@ -395,6 +397,7 @@ return {
       })
 
       local servers = {
+        astro = {},
         lua_ls = {
           settings = {
             Lua = {
@@ -432,6 +435,7 @@ return {
         html = {},
         cssls = {},
         stylelint_lsp = {},
+        tailwindcss = {},
         clangd = {
           cmd = {
             'clangd',
