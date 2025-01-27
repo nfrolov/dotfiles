@@ -535,6 +535,7 @@ return {
           timeout_ms = 500,
         },
         notify_on_error = true,
+        notify_no_formatters = true,
         formatters_by_ft = {
           javascript = { 'prettierd', 'prettier', stop_after_first = true },
           javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
