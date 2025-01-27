@@ -23,6 +23,7 @@ return {
           vim.api.nvim_set_hl(0, '@keyword.import.javascript', { link = '@keyword' })
           vim.api.nvim_set_hl(0, '@keyword.import.typescript', { link = '@keyword' })
           vim.api.nvim_set_hl(0, '@keyword.import.tsx', { link = '@keyword' })
+          vim.api.nvim_set_hl(0, 'DiagnosticUnnecessary', {})
         end,
       })
     end,
@@ -543,6 +544,17 @@ return {
           typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
           json = { 'prettierd', 'prettier', stop_after_first = true },
           html = { 'prettierd', 'prettier', stop_after_first = true },
+        },
+        formatters = {
+          prettierd = {
+            require_cwd = true,
+            env = {
+              PRETTIERD_LOCAL_PRETTIER_ONLY = 'true',
+            },
+          },
+          prettier = {
+            require_cwd = true,
+          },
         },
       })
     end,
