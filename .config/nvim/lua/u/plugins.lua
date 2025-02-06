@@ -538,6 +538,7 @@ return {
         notify_on_error = true,
         notify_no_formatters = true,
         formatters_by_ft = {
+          astro = { 'prettierd', 'prettier', stop_after_first = true },
           javascript = { 'prettierd', 'prettier', stop_after_first = true },
           javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
           typescript = { 'prettierd', 'prettier', stop_after_first = true },
