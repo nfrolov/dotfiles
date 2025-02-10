@@ -304,41 +304,45 @@ return {
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
-      'dcampos/nvim-snippy',
-      'dcampos/cmp-snippy',
     },
     event = { 'InsertEnter' },
     config = function ()
       local cmp = require('cmp')
-      local snippy = require('snippy')
       cmp.setup({
         snippet = {
           expand = function (args)
-            require('snippy').expand_snippet(args.body)
+            vim.snippet.expand(args.body)
           end,
         },
         completion = {
           -- keyword_length = 3,
         },
-        mapping = cmp.config.mapping.preset.insert({
-          ['<tab>'] = function (fallback)
-            if cmp.visible() then
-              cmp.select_next_item({ behavior = 'select' })
-            elseif snippy.can_expand_or_advance() then
-              snippy.expand_or_advance()
-            else
-              fallback()
-            end
-          end,
-          ['<s-tab>'] = function (fallback)
-            if cmp.visible() then
-              cmp.select_prev_item({ behavior = 'select' })
-            elseif snippy.can_jump(-1) then
-              snippy.previous()
-            else
-              fallback()
-            end
-          end,
+        mapping = {
+          ['<tab>'] = cmp.mapping(
+            function (fallback)
+              if cmp.visible() then
+                cmp.select_next_item({ behavior = 'select' })
+              elseif vim.snippet.active({ direction = 1 }) then
+                vim.schedule(function () vim.snippet.jump(1) end)
+              else
+                fallback()
+              end
+            end,
+            { 'i', 's' }
+          ),
+          ['<s-tab>'] = cmp.mapping(
+            function (fallback)
+              if cmp.visible() then
+                cmp.select_prev_item({ behavior = 'select' })
+              elseif vim.snippet.active({ direction = -1 }) then
+                vim.schedule(function () vim.snippet.jump(-1) end)
+              else
+                fallback()
+              end
+            end,
+            { 'i', 's'}
+          ),
+          ['<cr>'] = cmp.mapping.confirm({ select = false }),
           ['<c-n>'] = function ()
             if cmp.visible() then
               cmp.select_next_item({ behavior = 'select' })
@@ -353,8 +357,9 @@ return {
               cmp.complete()
             end
           end,
-          ['<cr>'] = cmp.mapping.confirm({ select = false }),
-        }),
+          ['<c-y>'] = cmp.mapping.confirm({ select = false }),
+          ['<c-e>'] = cmp.mapping.abort(),
+        },
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
           {
