@@ -287,7 +287,12 @@ return {
         },
         tabline = {
           lualine_a = {
-            { 'buffers', show_filename_only = false, symbols = { modified = '+' } },
+            {
+              'buffers',
+              show_filename_only = false,
+              max_length = function () return vim.o.columns end,
+              symbols = { modified = '+' },
+            },
           },
           lualine_b = {},
           lualine_c = {},
