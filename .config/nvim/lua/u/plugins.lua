@@ -12,6 +12,7 @@ return {
           vim.api.nvim_set_hl(0, '@markup.italic', {})
           vim.api.nvim_set_hl(0, '@markup.strikethrough', {})
           vim.api.nvim_set_hl(0, '@markup.underline', {})
+          vim.api.nvim_set_hl(0, '@markup.link.label.astro', {})
           vim.api.nvim_set_hl(0, '@string.special.url.html', {})
           vim.api.nvim_set_hl(0, '@string.special.url.astro', {})
           vim.api.nvim_set_hl(0, '@tag.javascript', { link = '@type' })
