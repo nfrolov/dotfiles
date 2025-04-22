@@ -145,6 +145,7 @@ return {
     config = function ()
       require('treesitter-context').setup({
         max_lines = 0,
+        multiline_threshold = 1,
       })
     end,
   },
@@ -649,4 +650,5 @@ return {
       vim.g.sql_type_default = 'pgsql'
     end,
   },
+  { 'cfdrake/vim-pbxproj' },
 }
