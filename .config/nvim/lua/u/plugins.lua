@@ -619,6 +619,11 @@ return {
         },
         signs_staged_enable = false,
         attach_to_untracked = false,
+        on_attach = function (bufnr)
+          local gs = require('gitsigns')
+          vim.keymap.set('n', ']c', function () gs.nav_hunk('next', { wrap = false }) end, { buffer = bufnr })
+          vim.keymap.set('n', '[c', function () gs.nav_hunk('prev', { wrap = false }) end, { buffer = bufnr })
+        end,
       })
     end,
   },
