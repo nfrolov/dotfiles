@@ -486,7 +486,6 @@ return {
               if server_options.on_attach ~= nil then
                 server_options.on_attach(client, bufnr)
               end
-              vim.keymap.set('i', '<c-s>', function () vim.lsp.buf.signature_help() end, { buffer = bufnr })
             end,
             flags = {
               debounce_text_changes = 150,
