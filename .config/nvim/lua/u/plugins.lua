@@ -434,16 +434,7 @@ return {
           },
         },
         jsonls = {},
-        eslint = {
-          --[[
-          on_attach = function (_, bufnr)
-            vim.api.nvim_create_autocmd('BufWritePre', {
-              buffer = bufnr,
-              command = 'EslintFixAll',
-            })
-          end,
-          --]]
-        },
+        eslint = {},
         cssmodules_ls = {},
         html = {},
         cssls = {},
@@ -483,9 +474,6 @@ return {
             capabilities = capabilities,
             on_attach = function (client, bufnr)
               client.server_capabilities.semanticTokensProvider = nil
-              if server_options.on_attach ~= nil then
-                server_options.on_attach(client, bufnr)
-              end
             end,
             flags = {
               debounce_text_changes = 150,
