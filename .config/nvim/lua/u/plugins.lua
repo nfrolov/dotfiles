@@ -465,20 +465,28 @@ return {
         ensure_installed = vim.tbl_keys(servers),
       })
 
-      local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+      local capabilities = vim.tbl_deep_extend(
+        'force',
+        {},
+        vim.lsp.protocol.make_client_capabilities(),
+        require('cmp_nvim_lsp').default_capabilities()
+      )
 
       require('mason-lspconfig').setup_handlers({
         function (server_name)
           local server_options = servers[server_name]
           require('lspconfig')[server_name].setup(vim.tbl_extend('force', server_options, {
             capabilities = capabilities,
-            on_attach = function (client, bufnr)
-              client.server_capabilities.semanticTokensProvider = nil
-            end,
-            flags = {
-              debounce_text_changes = 150,
-            },
           }))
+        end,
+      })
+
+      vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function (ev)
+          local client = vim.lsp.get_client_by_id(ev.data.client_id)
+          if client then
+            client.server_capabilities.semanticTokensProvider = nil
+          end
         end,
       })
     end,
