@@ -188,6 +188,7 @@ return {
         function ()
           require('telescope.builtin').lsp_references({
             include_current_line = true,
+            jump_type = 'never',
           })
         end,
       },
