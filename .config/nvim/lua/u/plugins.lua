@@ -85,10 +85,7 @@ return {
   },
   {
     'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-    },
-    event = { 'BufReadPost', 'BufNewFile' },
+    lazy = false,
     config = function ()
       require('nvim-treesitter.configs').setup({
         ensure_installed = {
@@ -120,17 +117,6 @@ return {
         },
         playground = {
           enable = true,
-        },
-        textobjects = {
-          move = {
-            enable = true,
-            goto_next_start = {
-              [']m'] = '@function.outer',
-            },
-            goto_previous_start = {
-              ['[m'] = '@function.outer',
-            },
-          },
         },
       })
     end,
@@ -473,14 +459,15 @@ return {
         require('cmp_nvim_lsp').default_capabilities()
       )
 
-      require('mason-lspconfig').setup_handlers({
-        function (server_name)
-          local server_options = servers[server_name]
-          require('lspconfig')[server_name].setup(vim.tbl_extend('force', server_options, {
-            capabilities = capabilities,
-          }))
-        end,
+      vim.lsp.config('*', {
+        capabilities = capabilities,
       })
+
+      for server_name, server_config in pairs(servers) do
+        if not vim.tbl_isempty(server_config) then
+          vim.lsp.config(server_name, server_config)
+        end
+      end
 
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function (ev)
