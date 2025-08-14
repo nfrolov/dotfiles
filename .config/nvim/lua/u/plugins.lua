@@ -623,16 +623,6 @@ return {
       })
     end,
   },
-  {
-    'yioneko/vim-tmindent',
-    lazy = true,
-    config = function ()
-      require('tmindent').setup({
-        enabled = function () return true end,
-        use_treesitter = function () return true end,
-      })
-    end,
-  },
   { 'pangloss/vim-javascript' },
   { 'maxmellon/vim-jsx-pretty' },
   {
